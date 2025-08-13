@@ -1,4 +1,4 @@
-# Algoritmos
+# DATA STRUCTURES
 
 A TypeScript implementation of classic data structures: **Stack**, **Queue**, **Linked List**, **Binary Search Tree**, and **Hash Table**. Each data structure is implemented from scratch and demonstrated in [`index.ts`](index.ts).
 
