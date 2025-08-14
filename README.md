@@ -9,15 +9,18 @@ A TypeScript implementation of classic data structures: **Stack**, **Queue**, **
 - **Linked List** ([src/linked_list.ts](src/linked_list.ts)): Doubly linked list with traversal, insertion, removal, and printing
 - **Binary Search Tree** ([src/binary_search_tree.ts](src/binary_search_tree.ts)): Insert, search, and visual print
 - **Hash Table** ([src/hash_table.ts](src/hash_table.ts)): Insert, get, remove, resize, and print
+- **Array Algorithms** ([src/array_algorithms.ts](src/array_algorithms.ts)): Sorting, Searching, and Swapping
 
 ## Usage
 
 1. **Install dependencies:**
+
    ```sh
    npm install
    ```
 
 2. **Run the demo:**
+
    ```sh
    npm run dev
    ```
@@ -33,6 +36,7 @@ src/
   linked_list.ts
   queue.ts
   stack.ts
+  array_algorithms.ts
 index.ts
 package.json
 tsconfig.json
