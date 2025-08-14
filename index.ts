@@ -2,7 +2,7 @@ import { Stack } from "./src/stack";
 import { Queue } from "./src/queue";
 import { BinarySearchTree } from "./src/binary_search_tree";
 import { HashTable } from "./src/hash_table";
-import { ArrayAlgorithms } from "./src/sorter";
+import { ArrayAlgorithms } from "./src/array_algorithms";
 
 //#region Binary Search Tree
 console.log("BINARY SEARCH TREE:\n");
@@ -80,6 +80,9 @@ const arrayB = [3, 2, 1, 4, 53, 43, 21, 52];
 
 console.log("Unsorted array (insertion):", arrayB);
 console.log("Sorted array (insertion):", arrayAlogrithms.insertionSort(arrayB));
-console.log("Efficient linear search:", arrayAlogrithms.efficientLinearSearch(arrayA, 3));
+console.log(
+  "Efficient linear search:",
+  arrayAlogrithms.efficientLinearSearch(arrayA, 3)
+);
 console.log("\n======================================\n");
 //#endregion
