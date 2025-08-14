@@ -3,6 +3,7 @@ import { Queue } from "./src/queue";
 import { BinarySearchTree } from "./src/binary_search_tree";
 import { HashTable } from "./src/hash_table";
 import { ArrayAlgorithms } from "./src/array_algorithms";
+import { Recursion } from "./src/recursion";
 
 //#region Binary Search Tree
 console.log("BINARY SEARCH TREE:\n");
@@ -84,5 +85,14 @@ console.log(
   "Efficient linear search:",
   arrayAlogrithms.efficientLinearSearch(arrayA, 3)
 );
+console.log("\n======================================\n");
+//#endregion
+
+//#region Recursion
+console.log("RECURSION:\n");
+const recursion = new Recursion();
+
+console.log("Factorial of 5:", recursion.factorial(5));
+console.log("Fibonacci of 10:", recursion.fibonacci(10));
 console.log("\n======================================\n");
 //#endregion

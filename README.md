@@ -10,6 +10,7 @@ A TypeScript implementation of classic data structures: **Stack**, **Queue**, **
 - **Binary Search Tree** ([src/binary_search_tree.ts](src/binary_search_tree.ts)): Insert, search, and visual print
 - **Hash Table** ([src/hash_table.ts](src/hash_table.ts)): Insert, get, remove, resize, and print
 - **Array Algorithms** ([src/array_algorithms.ts](src/array_algorithms.ts)): Sorting, Searching, and Swapping
+- **Recursion** ([src/recursion.ts](src/recursion.ts)): Factorial, Fibonacci
 
 ## Usage
 
@@ -37,6 +38,7 @@ src/
   queue.ts
   stack.ts
   array_algorithms.ts
+  recursion.ts
 index.ts
 package.json
 tsconfig.json
