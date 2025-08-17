@@ -4,6 +4,7 @@ import { BinarySearchTree } from "./src/binary_search_tree";
 import { HashTable } from "./src/hash_table";
 import { ArrayAlgorithms } from "./src/array_algorithms";
 import { Recursion } from "./src/recursion";
+import { LinkedList } from "./src/linked_list";
 
 //#region Binary Search Tree
 console.log("BINARY SEARCH TREE:\n");
@@ -31,6 +32,8 @@ stack.push(2);
 stack.push(3);
 stack.pop();
 stack.print();
+console.log("Reversed stack");
+LinkedList.reverse<number>(stack.linkedList).print();
 console.log("\n======================================\n");
 //#endregion
 
