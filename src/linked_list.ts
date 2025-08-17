@@ -42,6 +42,23 @@ export class LinkedList<T> {
   }
 
   /**
+   * Adds a new element to the beginning of the linked list.
+   * If the list is empty, sets the new element as both the head and the tail.
+   * Otherwise, sets the new element as the head.
+   *
+   * @param value The value of the element to be added.
+   */
+  unshift(value: T) {
+    if (!this.head && !this.tail) {
+      this.head = { value };
+      this.tail = this.head;
+    } else if (this.head) {
+      this.head.prev = { value, next: this.head };
+      this.head = this.head.prev;
+    }
+  }
+
+  /**
    * Removes and returns the last element of the linked list.
    * If the list is empty, returns undefined.
    *
@@ -145,5 +162,25 @@ export class LinkedList<T> {
     }
 
     console.log(`${printable}]`);
+  }
+
+  /**
+   * Reverses the order of elements in a linked list by creating a new linked list
+   * and pushing the values from the original list onto it in reverse order.
+   *
+   * @param list - The linked list to be reversed.
+   * @returns A new linked list with the same elements as the original list, but in reverse order.
+   */
+  static reverse<T>(list: LinkedList<T>): LinkedList<T> {
+    const reversed = new LinkedList<T>();
+
+    let current = list.tail;
+
+    while (current) {
+      reversed.push(current.value);
+      current = current.prev;
+    }
+
+    return reversed;
   }
 }
