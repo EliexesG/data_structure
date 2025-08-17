@@ -1,12 +1,14 @@
+type hashTableType<T> = Record<string, T> | undefined;
+
 export class HashTable<T> {
-  private _table: Array<[string, T][] | undefined>;
+  private _table: Array<hashTableType<T>>;
 
   /**
    * Creates a new hash table with the given size.
    * @param size The size of the hash table.
    */
   constructor(size: number) {
-    this._table = Array<[[string, T]] | undefined>(size).fill(undefined);
+    this._table = Array<hashTableType<T>>(size).fill(undefined);
   }
 
   /**
@@ -22,7 +24,10 @@ export class HashTable<T> {
    * @returns The total number of items in the hash table.
    */
   get numItems() {
-    return this._table.reduce((acc, item) => acc + (item?.length || 0), 0);
+    return this._table.reduce(
+      (acc, item) => acc + Object.keys(item || {}).length,
+      0
+    );
   }
 
   get lenght() {
@@ -34,13 +39,15 @@ export class HashTable<T> {
    * After resizing, all existing key-value pairs are reinserted into the new table.
    */
   resize() {
-    const newTable = Array<[string, T][] | undefined>(
-      this._table.length * 2
-    ).fill(undefined);
+    const newTable = Array<hashTableType<T>>(this._table.length * 2).fill(
+      undefined
+    );
 
     this._table.forEach((item) => {
       if (item)
-        item.forEach(([key, value]) => this.insertItem(key, value, newTable));
+        Object.keys(item).forEach((key) =>
+          this.insertItem(key, item[key], newTable)
+        );
     });
 
     this._table = newTable;
@@ -71,8 +78,7 @@ export class HashTable<T> {
    */
   get(key: string): T | undefined {
     const index = this.hashStringToIndex(key);
-
-    return this._table[index]?.find((item) => item[0] === key)?.[1];
+    return this._table[index]?.[key];
   }
 
   /**
@@ -83,7 +89,7 @@ export class HashTable<T> {
    */
   remove(key: string) {
     const index = this.hashStringToIndex(key);
-    this._table[index] = this._table[index]?.filter((item) => item[0] !== key);
+    delete this._table[index]?.[key];
   }
 
   print() {
@@ -116,18 +122,14 @@ export class HashTable<T> {
    * @param value - The value to be inserted into the hash table.
    * @param table - The hash table where the key-value pair should be inserted.
    */
-  private insertItem(
-    key: string,
-    value: T,
-    table: Array<[string, T][] | undefined>
-  ) {
+  private insertItem(key: string, value: T, table: Array<hashTableType<T>>) {
     const index = this.hashStringToIndex(key, table.length);
 
     if (table[index]) {
-      table[index].push([key, value]);
+      table[index][key] = value;
       return;
     }
 
-    table[index] = [[key, value]];
+    table[index] = { [key]: value };
   }
 }
